@@ -14,8 +14,6 @@ terraform = "latest"
 
 [env]
 KUBECONFIG = "{{ config_root }}/.kubeconfig.yaml"
-EMAIL = "kmcentire@scan.com"
-EMAIL_ADDRESS = "kmcentire@scan.com"
 
 [env._]
 file = ".env"
