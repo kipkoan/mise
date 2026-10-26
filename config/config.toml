@@ -1,0 +1,28 @@
+[settings.self_update]
+auto = true
+
+[bootstrap.services.mise-history]
+builtin = "history-watch"
+
+[tools]
+java = "latest"
+node = "latest"
+opentofu = "latest"
+python = "latest"
+ruby = "latest"
+terraform = "latest"
+
+[env]
+KUBECONFIG = "{{ config_root }}/.kubeconfig.yaml"
+EMAIL = "kmcentire@scan.com"
+EMAIL_ADDRESS = "kmcentire@scan.com"
+
+[env._]
+file = ".env"
+
+[dotfiles]
+"~/.config/mise/config.toml" = { mode = "track" }
+"~/.gitconfig" = { mode = "track" }
+"~/.p10k.zsh" = { mode = "track" }
+"~/.zprofile" = { mode = "track" }
+"~/.zshrc" = { mode = "track" }
