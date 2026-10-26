@@ -1,1 +1,0 @@
-Code/github.com/kipkoan/dotfiles-mac/.zshrc
