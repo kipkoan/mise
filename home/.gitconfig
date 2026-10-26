@@ -1,0 +1,113 @@
+[user]
+  name = Kip McEntire
+
+[core]
+  excludesfile = ~/.config/git/ignore
+  legacyheaders = false
+  pager = less -FMRiX
+	editor = codium --wait
+
+[repack]
+  usedeltabaseoffset = true
+
+[push]
+  default = simple
+
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+
+[rebase]
+  autosquash = true
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[rerere]
+  enabled = 1
+
+[pager]
+  status = true
+  show-branch = true
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  ui = auto
+  interactive = auto
+
+[alias]
+  a = add
+  aa = add --all
+  ai = add -i
+  amend = commit --amend
+  alias = config --get-regexp '^alias\\.'
+  ap = add -p
+  b = branch
+  ba = branch -a
+  c = commit
+  ca = commit -a
+  cam = commit -am
+  cf = commit --fixup
+  cm = commit -m
+  co = checkout
+  cof = checkout --
+  com = "!f() { git merge --no-ff --no-commit $@ && git reset head -q; }; f"  # checkout-merge
+  cp = cherry-pick
+  cs = commit --squash
+  d = diff
+  dt = difftool
+  div = divergence
+  dc = diff --cached
+  fa = fetch --all
+  ff = merge --ff-only
+  h = !git hd
+  hd = !git l -1
+
+  ls-ignored = !git ls-files -v | grep '^[a-z]'
+  ls-igskipped = !git ls-files -v | grep '^[a-zS]'
+  ls-skipped = !git ls-files -v | grep '^S'
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  skip = update-index --skip-worktree
+  unskip = update-index --no-skip-worktree
+  deleted = log --diff-filter=D --summary
+
+  in = !git log $(git rev-parse --abbrev-ref --symbolic-full-name @{u}) ^HEAD
+  l = log --graph --abbrev-commit --date=relative
+  la = !git l --all
+  lg = log --pretty=medium
+  lm = !git l --author=$(git config user.email)
+  lp = log -p -1
+  ls = ls-files
+  out = !git log HEAD ^$(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+  pl = pull
+  plff = pull --ff-only
+  pod = !git push --delete $(git remote)
+  pom = !git push -u $(git remote) $(git rev-parse --abbrev-ref HEAD)
+  ps = push
+  plre = pull --rebase
+  r = !git --no-pager l -20
+  ra = !git r --all
+  rb = rebase --interactive --autosquash
+  rh = reset HEAD
+  st = status
+  wc = whatchanged -p --abbrev-commit --pretty=medium --
+  dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+
+[format]
+  pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+
+[pull]
+  rebase = true
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
