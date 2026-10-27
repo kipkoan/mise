@@ -1,7 +1,8 @@
-[settings]
-idiomatic_version_file_enable_tools = ["terraform", "python", "ruby"]
 [settings.self_update]
 auto = true
+
+[settings]
+idiomatic_version_file_enable_tools = ["terraform", "python", "ruby"]
 
 [bootstrap.services.mise-history]
 builtin = "history-watch"
