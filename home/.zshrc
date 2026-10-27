@@ -39,7 +39,11 @@ HIST_STAMPS="%F %T"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws uv opentofu helm colored-man-pages colorize docker kubectl pip python virtualenv brew macos history z zsh-autosuggestions zsh-syntax-highlighting vi-mode gcloud mise)
+plugins=(
+  git aws uv opentofu helm colored-man-pages colorize docker kubectl pip python
+  virtualenv brew macos history z zsh-autosuggestions zsh-syntax-highlighting
+  vi-mode gcloud mise
+)
 
 source $ZSH/oh-my-zsh.sh
 
